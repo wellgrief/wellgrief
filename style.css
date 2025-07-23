@@ -1,0 +1,87 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  background: #0e0e0e;
+  color: white;
+}
+
+.sidebar {
+  width: 220px;
+  background: #1a1a1a;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.sidebar h2 {
+  color: #ffcc00;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  margin: 10px 0;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sidebar a:hover {
+  color: #ffcc00;
+}
+
+.content {
+  margin-left: 240px;
+  padding: 30px;
+  max-width: 800px;
+}
+
+.ip-box {
+  margin-top: 10px;
+}
+
+.ip-box input {
+  padding: 10px;
+  width: 250px;
+}
+
+.ip-box button {
+  padding: 10px;
+  margin-left: 10px;
+  background: #ffcc00;
+  border: none;
+  cursor: pointer;
+}
+
+.shop-items li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.shop-items a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+pre {
+  white-space: pre-wrap;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
