@@ -3,35 +3,138 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wellgrief — Главная</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WellHorse Server</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Russo One', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background: linear-gradient(to right, #1f1f1f, #2c2c2c);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    nav a:hover {
+      color: #ff4d00;
+    }
+    .container {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    .ip-box {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .ip-box input {
+      background: #000;
+      color: #fff;
+      font-size: 20px;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .rules {
+      white-space: pre-line;
+    }
+    .shop-link {
+      display: block;
+      margin: 10px 0;
+      font-size: 24px;
+      color: #ff4d00;
+    }
+  </style>
 </head>
 <body>
-  <div class="sidebar">
-<img src="assets/logo.png" alt="Wellgrief Logo">
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Minecraft_icon.svg/2048px-Minecraft_icon.svg.png" alt="Avatar">
+    <nav>
+      <a href="#" onclick="showSection('home')">Головна</a>
+      <a href="#" onclick="showSection('shop')">Магазин</a>
+      <a href="#" onclick="showSection('form')">Заявки</a>
+      <a href="#" onclick="showSection('rules')">Правила</a>
+    </nav>
+  </header>
 
-    <h2>Wellgrief</h2>
-    <a href="index.html">ГЛАВНАЯ</a>
-    <a href="shop.html">МАГАЗИН</a>
-    <a href="rules.html">ПРАВИЛА</a>
-    <a href="applications.html">ЗАЯВКИ</a>
-  </div>
-  <div class="content">
-    <h1>НАШ СЕРВЕР</h1>
-    <p>Заходите все, IP вот тут:</p>
-    <div class="ip-box">
-      <input type="text" value="wellhorse.aternos.me" id="ip" readonly>
-      <button onclick="copyIP()">Скопировать</button>
+  <div class="container">
+    <div id="home" class="section active">
+      <div class="ip-box">
+        <h2>IP СЕРВЕРА:</h2>
+        <input type="text" value="wellhorse.aternos.me" id="serverIP" readonly onclick="copyIP()" />
+        <p>Копируй и заходи!</p>
+      </div>
+    </div>
+
+    <div id="shop" class="section">
+      <a class="shop-link" href="https://t.me/normaiii" target="_blank">PHOENIX</a>
+      <a class="shop-link" href="https://t.me/normaiii" target="_blank">LEGEND</a>
+      <a class="shop-link" href="https://t.me/normaiii" target="_blank">IMPERATOR</a>
+      <a class="shop-link" href="https://t.me/normaiii" target="_blank">MAGMA</a>
+      <a class="shop-link" href="https://t.me/normaiii" target="_blank">Размут</a>
+      <a class="shop-link" href="https://t.me/normaiii" target="_blank">Разбан</a>
+      <a class="shop-link" href="https://t.me/normaiii" target="_blank">ii</a>
+    </div>
+
+    <div id="form" class="section">
+      <p>Для подачі заявки переходьте: <a href="https://t.me/ownermrbro" target="_blank">t.me/ownermrbro</a></p>
+    </div>
+
+    <div id="rules" class="section">
+      <div class="rules">
+        0.1 Незнание правил не освобождает от ответсвенности.
+        0.2 Блокировка навсегда по IP от представителей проекта. — Блокировка, которую нельзя обжаловать...
+
+        [!] Правила чата.
+        2.1 Флуд/Спам ⤇ Наказание: Блокировка чата 15 минут.
+        2.1.1 Создание варп с оскорблением игрока
+        ⤇Наказание: Удаление варпа + мут на 20 минут
+        ... (и все остальные правила, как ты указал)
+
+        Данные правила распространяются только на этот Дискорд.
+        [1.1] Запрещены оскорбления, унижения...
+        [1.6] Запрещено упоминание родных.
+      </div>
     </div>
   </div>
+
   <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
     function copyIP() {
-      const copyText = document.getElementById("ip");
-      copyText.select();
-      copyText.setSelectionRange(0, 99999);
-      document.execCommand("copy");
-      alert("IP скопирован: " + copyText.value);
+      const ipInput = document.getElementById('serverIP');
+      ipInput.select();
+      ipInput.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      alert("IP скопировано: " + ipInput.value);
     }
   </script>
 </body>
